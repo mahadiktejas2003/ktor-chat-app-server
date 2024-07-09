@@ -1,0 +1,1 @@
+web: java -jar build/libs/com.abc.ktor-chat-all.jar
