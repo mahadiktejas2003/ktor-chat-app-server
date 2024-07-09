@@ -1,6 +1,6 @@
-package com.plcoding.data
+package com.abc.data
 
-import com.plcoding.data.model.Message
+import com.abc.data.model.Message
 
 interface MessageDataSource {
 

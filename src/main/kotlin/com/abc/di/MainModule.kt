@@ -1,8 +1,8 @@
-package com.plcoding.di
+package com.abc.di
 
-import com.plcoding.data.MessageDataSource
-import com.plcoding.data.MessageDataSourceImpl
-import com.plcoding.room.RoomController
+import com.abc.data.MessageDataSource
+import com.abc.data.MessageDataSourceImpl
+import com.abc.room.RoomController
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo

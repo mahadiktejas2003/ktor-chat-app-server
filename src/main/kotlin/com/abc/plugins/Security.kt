@@ -1,6 +1,6 @@
-package com.plcoding.plugins
+package com.abc.plugins
 
-import com.plcoding.session.ChatSession
+import com.abc.session.ChatSession
 import io.ktor.server.application.*
 import io.ktor.server.sessions.*
 

@@ -1,4 +1,4 @@
-package com.plcoding.session
+package com.abc.session
 
 data class ChatSession(
     val username: String,

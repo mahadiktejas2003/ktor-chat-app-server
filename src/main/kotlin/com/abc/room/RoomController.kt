@@ -1,7 +1,7 @@
-package com.plcoding.room
+package com.abc.room
 
-import com.plcoding.data.MessageDataSource
-import com.plcoding.data.model.Message
+import com.abc.data.MessageDataSource
+import com.abc.data.model.Message
 import io.ktor.websocket.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

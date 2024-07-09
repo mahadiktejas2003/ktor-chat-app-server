@@ -1,10 +1,8 @@
-package com.plcoding.plugins
+package com.abc.plugins
 
-import com.plcoding.room.RoomController
-import com.plcoding.routes.chatSocket
-import com.plcoding.routes.getAllMessages
-
-import io.ktor.http.*
+import com.abc.room.RoomController
+import com.abc.routes.chatSocket
+import com.abc.routes.getAllMessages
 
 import io.ktor.server.application.*
 import io.ktor.server.routing.*

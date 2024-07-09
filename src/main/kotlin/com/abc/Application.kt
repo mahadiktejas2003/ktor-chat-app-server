@@ -1,9 +1,9 @@
-package com.plcoding
+package com.abc
 
 import com.abc.plugins.configureSerialization
-import com.plcoding.di.mainModule
+import com.abc.di.mainModule
 
-import com.plcoding.plugins.*
+import com.abc.plugins.*
 import io.ktor.server.application.*
 import org.koin.ktor.plugin.Koin
 
