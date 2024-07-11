@@ -6,8 +6,8 @@ val kmongo_version: String by project
 val koin_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.23"
-    id("io.ktor.plugin") version "2.3.9"
+    id("io.ktor.plugin") version "2.3.5"
+    kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "2.0.0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 
@@ -26,7 +26,7 @@ dependencies {
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-websockets:$ktor_version")
 
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     implementation("io.ktor:ktor-server-sessions:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
@@ -34,20 +34,6 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 
-//    // KMongo
-//    implementation("org.litote.kmongo:kmongo:$kmongo_version")
-//    implementation("org.litote.kmongo:kmongo-coroutine:$kmongo_version")
-//
-//    // Koin core features
-//// https://mvnrepository.com/artifact/io.insert-koin/koin-core
-//    runtimeOnly("io.insert-koin:koin-core:3.5.6")
-//// https://mvnrepository.com/artifact/io.insert-koin/koin-ktor
-//    implementation("io.insert-koin:koin-ktor:3.5.6")
-//
-//// https://mvnrepository.com/artifact/io.insert-koin/koin-logger-slf4j
-//    implementation("io.ktor:ktor-server-call-logging:$ktor_version")
-//    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-//    implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-server-call-logging:$ktor_version")
     implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
@@ -63,10 +49,8 @@ dependencies {
     // KMongo
     implementation("org.litote.kmongo:kmongo:$kmongo_version")
     implementation("org.litote.kmongo:kmongo-coroutine:$kmongo_version")
-// https://mvnrepository.com/artifact/io.insert-koin/koin-ktor
-    implementation("io.insert-koin:koin-ktor:3.5.3")
 
-    // SLF4J Logger
+    implementation("io.insert-koin:koin-ktor:3.5.3")
     implementation("io.insert-koin:koin-logger-slf4j:3.5.3")
 
 
@@ -74,10 +58,18 @@ dependencies {
 // Custom shadowJar configuration
 tasks.register<ShadowJar>("customShadowJar") {
     manifest {
-        attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
+//        attributes["Main-Class"] = "io.ktor.server.netty.EngineMain"
+        attributes(Pair("Main-Class", "com.abc.ApplicationKt"))
     }
 }
 
-tasks.register("stage") {
-    dependsOn("installDist")
+//tasks.register("stage") {
+//    dependsOn("installDist")
+//}
+
+
+ktor{
+    fatJar{
+        archiveFileName.set("com.abc.ktor-chat-$version-all.jar")
+    }
 }

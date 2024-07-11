@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    container_name: mongodb-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+
+  ktor:
+    build: .
+    image: tejasmahadik/abc-main:0.0.1
+    restart: always
+    container_name: abc-main-container
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      MONGODB_HOST: mongodb
+      MONGODB_URI: mongodb://mongodb:27017
+      DB_NAME: message_db_y
+      NAME: abcMain
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb:  {}
