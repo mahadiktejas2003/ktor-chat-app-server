@@ -9,7 +9,7 @@ import io.ktor.util.*
 
 fun Application.configureSecurity() {
     data class MySession(val count: Int = 0)
-    install(Sessions) {
+    install(Sessions) {//go to Session package-> ChatSession class
         cookie<ChatSession>("SESSION")
     }
 

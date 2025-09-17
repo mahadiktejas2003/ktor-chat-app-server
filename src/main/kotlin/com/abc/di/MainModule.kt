@@ -13,7 +13,8 @@ val mainModule=module{
     //here define the dependedency that we actually provide
     //we have our Database instance- so we can say-single->so we can define the singleton as single{}
     single{
-        KMongo.createClient()//kmongo-from reactiveStreams
+        val mongoUri = System.getenv("MONGODB_URI") ?: "mongodb://mongodb:27017/message_db_y"
+        KMongo.createClient(mongoUri)//kmongo-from reactiveStreams
             .coroutine//this'll create such a Coroutine Client
             .getDatabase("message_db_y")//then we can say- getDatabase to get this  Coroutine Database we talked about when we provide a name
                                     //so we can say- message_db_yt->because we already have a message db->(we her say as-message_db_y only )
@@ -41,4 +42,3 @@ val mainModule=module{
 }
 
 //Now let's have a plugin to Configure Koin ->go to the Application.kt class
-

@@ -14,5 +14,4 @@ fun Application.configureRouting() {
         getAllMessges(roomController)
 
     }
-
 }

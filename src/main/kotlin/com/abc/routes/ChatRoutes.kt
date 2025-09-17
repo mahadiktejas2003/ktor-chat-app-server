@@ -28,7 +28,7 @@ fun Route.chatSocket(roomController: RoomController){
         //so we say-Close()
         if(session ==null){
             close(CloseReason(CloseReason.Codes.VIOLATED_POLICY,"No Session."))//Can pass the close reason- why the sessio is closed ->to know for user.
-            return@webSocket  //return out of this websocket blick
+            return@webSocket  //return out of this websocket block
             }
         //else case-
         //if we have a session->and we can join the Chat

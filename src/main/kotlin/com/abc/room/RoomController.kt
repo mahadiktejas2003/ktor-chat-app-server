@@ -12,7 +12,7 @@ class RoomController (
     //pass the interface (MessageDataSource) because in this room controller when we send a messgep we off Course want to insert that in our Datahase
 
 ){
-    private val members= ConcurrentHashMap<String,Member>()
+    private val members= ConcurrentHashMap<String   ,Member>()
     //we're gonna use the concurrentHashMap ->to save our members that are currently connected to our Chat (Room)
     //Keys are strings  are the Usernames which are unique , and the values are our Members
 
@@ -37,7 +37,7 @@ class RoomController (
             socket=socket
         )
     }
-    //now what else we need-> we also need a fxn to actually send a message
+    //we also need a fxn to actually send a message
     //so when a specific member  sends the message->we wanna broadcast that to all the members in this Room(Chat Room)
     //So it's called as -sendMessage
 
@@ -91,7 +91,7 @@ class RoomController (
         //key -username is used here.
         //.socket?.close= means we wanna close the socket connection to that specific member.
 
-        if(members.containsKey(username))//if therre's a key in the memebers list-" Username" 0then say
+        if(members.containsKey(username))//if therre's a key in the memebers list-" Username"  then say
             // that - member.remove that username
         {
             members.remove(username)
