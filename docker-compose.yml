@@ -7,22 +7,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    depends_on:
-      - mongodb
     environment:
-      MONGODB_URI: "mongodb://mongodb:27017/message_db_y"
-
-  mongodb:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-    healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-volumes:
-  mongo-data:
+      MONGODB_URI: "mongodb+srv://tejas:22111287%40Tm@ktor-chat-app-backend-d.oaqrxzr.mongodb.net/?retryWrites=true&w=majority&appName=Ktor-chat-app-backend-db"
